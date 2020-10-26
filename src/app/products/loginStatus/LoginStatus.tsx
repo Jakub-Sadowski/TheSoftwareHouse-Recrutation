@@ -47,7 +47,7 @@ export const LoginStatus = () => {
                 onClose={handleClose}
                 >
                     <MenuItem onClick={logOut}>Logout</MenuItem>
-                    <MenuItem><Link className={classes.logo} to={AppRoute.home}>join.tsh.io</Link></MenuItem>
+                    <MenuItem><Link to={AppRoute.login}>Logging Site</Link></MenuItem>
                 </Menu>
           </div>)
     else
