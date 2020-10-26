@@ -3,11 +3,17 @@ import { isMobile } from "react-device-detect";
 
 export const commonStyles = makeStyles(() => ({
     filledButton: {
-        padding:"75rem",
+        padding:".75rem",
         backgroundColor:"#4460F7",
         "&:hover":{
             backgroundColor:"#2140E8"
-        }
+        },
+        textTransform:"none",
+       
+    },
+    disabledButton:{
+        color: "#ffffff !important",
+        backgroundColor:"#9194A5 !important"
     },
     logo:{
         fontFamily:"Nunito",
@@ -70,7 +76,24 @@ export const commonStyles = makeStyles(() => ({
         color:"#9194A5" ,
     },
     font14:{
-        fonTsize: "14px",
+        fontsize: "14px",
     },
-
+    flex:{
+        display:"flex",
+    },
+    search:{
+        width: '392px',
+        marginRight:'1rem',
+        height:"3rem",
+    },
+    browserNav:{
+        display: "flex",
+        justifyContent:"space-between",
+        alignItems:"center",
+        marginTop:"3rem",
+        marginBottom:"5rem",
+    },
+    bold:{
+        fontWeight: 600,
+    },
   }));

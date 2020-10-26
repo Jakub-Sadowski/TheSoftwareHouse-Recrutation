@@ -26,7 +26,6 @@ export const Login :FC = () => {
             </div>
               
           </Container>
-       
         </Grid>
       
       </Grid>

@@ -1,9 +1,18 @@
-import { Button, TextField } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
+import { FilledButton, FilledButtonProps } from 'app/utillities/FilledButton';
 import  React, {FC} from 'react';
 import {commonStyles} from '../../styles/utilities';
 
 export const LoginForm : FC = ( ) =>{
     const classes = commonStyles();
+    const handleOnClick = () => {
+        console.log('fsdf')
+    }
+    const logInButton : FilledButtonProps = {
+        text: "Log in",
+        handleClick: handleOnClick,
+        disabled: false
+    }
     return(
         <form>
             <div className={classes.mb3}>
@@ -22,9 +31,7 @@ export const LoginForm : FC = ( ) =>{
                     <TextField id="outlined-password" label="Enter password" variant="outlined" fullWidth />
                 </label>
             </div>
-            <Button className={`${classes.filledButton} ${classes.mb3}`} variant="contained" color="primary" fullWidth>
-                Log in
-            </Button>
+           <FilledButton {...logInButton} />
             <a className={`${classes.font14} ${classes.grey}`} href="/">Forgot password?</a>      
         </form>
     )
