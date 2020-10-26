@@ -60,6 +60,12 @@ export const commonStyles = makeStyles(() => ({
     mt5:{
         marginTop: "3rem",
     },
+    p2: {
+        padding:'.5rem'
+    },
+    p4:{
+        padding: '2rem',
+    },
     pb2:{
         paddingBottom: ".5rem",
     },
@@ -76,7 +82,7 @@ export const commonStyles = makeStyles(() => ({
         color:"#9194A5" ,
     },
     font14:{
-        fontsize: "14px",
+        fontSize: "14px !important",
     },
     flex:{
         display:"flex",
@@ -90,10 +96,22 @@ export const commonStyles = makeStyles(() => ({
         display: "flex",
         justifyContent:"space-between",
         alignItems:"center",
-        marginTop:"3rem",
-        marginBottom:"5rem",
+        backgroundColor: "#ffffff",
+        
     },
     bold:{
         fontWeight: 600,
+    },
+    browserBack: {
+        backgroundColor: "#F2F2F2",
+        height: "100vh"
+    },
+    justifyCenter:{
+        justifyContent:'center'
+    },
+    avatar: {
+        height: '48px',
+        width: '48px',
+        marginTop: '.75rem',
     },
   }));

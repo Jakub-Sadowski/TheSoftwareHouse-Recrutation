@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { Action, ProductsModel } from '../../api-interfaces';
+import { Action } from '../../api-interfaces';
 import { LOG_IN, LOG_OUT } from './types';
 
 

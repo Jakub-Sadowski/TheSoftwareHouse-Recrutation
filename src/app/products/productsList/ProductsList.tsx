@@ -2,7 +2,8 @@ import { CircularProgress, Grid } from '@material-ui/core';
 import { ProductsModel, StoreModel } from 'api-interfaces';
 import React from 'react';
 import { isMobile } from 'react-device-detect';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { EmptyList } from '../emptyList/EmptyList';
 import { Product } from '../product/Product';
 import { productsListStyles } from './productsListStyles';
 
@@ -18,16 +19,16 @@ export const ProductsList = () => {
                     {items.map((item)=> <Product key={item.id} {...item} /> )} </> )
             else
                 return(
-                    <Grid container className={listClasses.cardsGrid}>
+                    <Grid container spacing={2}>
                         {items.map((item)=>
-                        <Grid item xs>
-                            <Product key={item.id} {...item} />
+                        <Grid key={item.id} item xs>
+                            <Product  {...item} />
                         </Grid>)} 
                     </Grid>)
         }
            
         else
-            return(<div>blad</div>)
+            return(<EmptyList/>)
     }
     else
         return <div className={listClasses.center}><CircularProgress className={listClasses.spinner} /></div> 

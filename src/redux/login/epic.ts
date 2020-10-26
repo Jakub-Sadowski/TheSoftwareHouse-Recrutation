@@ -1,5 +1,4 @@
 import { ofType } from 'redux-observable';
-import { logIn, logOut } from './actions';
 import { LOG_IN, LOG_OUT, TRY_LOG_IN, TRY_LOG_OUT } from './types';
 import { mapTo } from 'rxjs/operators';
 

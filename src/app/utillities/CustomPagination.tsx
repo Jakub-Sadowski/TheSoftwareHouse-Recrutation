@@ -11,11 +11,13 @@ export type CustomPaginationProps = {
 export const CustomPagination : FC<CustomPaginationProps> = ({pagesCount, currentPage, changePage}) => {
     const classes = commonStyles();
 
-    return(
-        <div className={classes.flex}>
-          <Button size="small" className={classes.textToNormal} disabled={currentPage===1} onClick={()=>changePage(1)}>First</Button>
-          <Pagination count={pagesCount} page={currentPage} onChange={(e,v)=>changePage(v)} siblingCount={0} hidePrevButton hideNextButton />
-          <Button size="small" className={classes.textToNormal} disabled={currentPage===pagesCount} onClick={()=>changePage(pagesCount)}>Last</Button>
-      </div>
+    return (<>
+        {pagesCount ?
+            <div id="pagination" className={`${classes.flex} ${classes.justifyCenter} ${classes.mt3}`}>
+                <Button size="small" className={classes.textToNormal} disabled={currentPage === 1} onClick={() => changePage(1)}>First</Button>
+                <Pagination count={pagesCount} page={currentPage} onChange={(e, v) => changePage(v)} siblingCount={0} hidePrevButton hideNextButton />
+                <Button size="small" className={classes.textToNormal} disabled={currentPage === pagesCount} onClick={() => changePage(pagesCount)}>Last</Button>
+            </div> : ''}
+    </>
     )
 }
