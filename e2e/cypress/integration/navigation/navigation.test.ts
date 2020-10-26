@@ -14,4 +14,18 @@ context('HomePage should', () => {
       expect(loc.href).to.eq(NavigationMenu.loginLink);
     });
   });
+  it('navigate to login on clicking login', () => {
+    cy.clearSession();
+    NavigationMenu.goToLogin();
+    cy.location().should(loc => {
+      expect(loc.href).to.eq(NavigationMenu.loginLink);
+    });
+  });
+  it('navigate to login on clicking login', () => {
+    cy.clearSession();
+    NavigationMenu.goToLogin();
+    cy.location().should(loc => {
+      expect(loc.href).to.eq(NavigationMenu.loginLink);
+    });
+  });
 });

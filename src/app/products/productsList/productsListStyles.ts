@@ -9,12 +9,4 @@ export const productsListStyles = makeStyles(() => ({
    center:{
        textAlign:"center",
    },
-   cardSizes:{
-    width: '288px',
-    height: '400px',
-    position: 'relative',
-    },
-    cardsGrid:{
-        alignItems:"baseline",
-    },
   }));

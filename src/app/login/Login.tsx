@@ -10,24 +10,26 @@ export const Login :FC = () => {
   const classes = commonStyles();
 
   return (
-    <Grid container spacing={3} >
-       {!isMobile && <Grid item xs={6}>
-          <img alt="loginPhoto" src={require("../../assets/Bitmap.png")}/>
-        </Grid>}
-        <Grid item xs={isMobile ? 12 : 6}>
-          <Container maxWidth="sm" className={classes.center}>
-            <div className={classes.mt5}>
-              <Link className={classes.logo} to={AppRoute.home}>join.tsh.io</Link>
-            </div>
-             
-            <div className={classes.centerVertically}>
-               <h2>Login</h2>
-                <LoginForm/>
-            </div>
+    <Grid container className={classes.mainContainer}>
+      <Grid container spacing={3} >
+        {!isMobile && <Grid item xs={6}>
+            <img alt="loginPhoto" src={require("../../assets/Bitmap.png")}/>
+          </Grid>}
+          <Grid item xs={isMobile ? 12 : 6}>
+            <Container maxWidth="sm" className={classes.center}>
+              <div className={classes.mt5}>
+                <Link className={classes.logo} to={AppRoute.home}>join.tsh.io</Link>
+              </div>
               
-          </Container>
-        </Grid>
+              <div className={classes.centerVertically}>
+                <h2>Login</h2>
+                  <LoginForm/>
+              </div>
+                
+            </Container>
+          </Grid>
       
       </Grid>
+    </Grid>
   );
 };

@@ -23,7 +23,7 @@ export const LoginForm : FC = ( ) =>{
                     <TextField id="outlined-username" label="Enter username" variant="outlined" fullWidth/>
                 </label>
             </div>
-            <div className="mb-5">
+            <div className={classes.mb5}>
                 <label>
                     <div className={classes.mb2}>
                         Password

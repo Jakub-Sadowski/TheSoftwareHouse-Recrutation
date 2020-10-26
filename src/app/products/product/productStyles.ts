@@ -9,9 +9,9 @@ export const productStyles = makeStyles(() => ({
         height: "24px",
         backgroundColor: "#F9A52B",
         textAlign: 'center',
-        position: "relative",
+        position: "absolute",
         zIndex: 100,
-        transform: "translateY(40px)"       
+        transform: "translateY(20px)"       
     },
     promoText:{
         fontSize:"14px",
@@ -28,21 +28,14 @@ export const productStyles = makeStyles(() => ({
     cardSizes:{
         width: '288px',
         height: '400px',
-        position: 'relative',
+        display: 'flex',
+        flexDirection: "column",
+        justifyContent: "space-between",
+        position:'relative'
     },
     cardContent:{
-        padding:0,
+        padding:'.5rem',
         marginTop:'.5rem',
         height:'64px',
-    },
-    filledButtonAbsolute: {
-        padding:".75rem",
-        backgroundColor:"#4460F7",
-        "&:hover":{
-            backgroundColor:"#2140E8"
-        },
-        textTransform:"none",
-        position: 'absolute',
-        bottom: 0,
     },
   }));

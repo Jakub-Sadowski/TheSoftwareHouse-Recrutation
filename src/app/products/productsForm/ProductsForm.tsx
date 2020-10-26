@@ -23,7 +23,7 @@ export const ProductsForm :FC<ProductsFormProps> = ({search, active, promo}) =>{
     const [text, setText] = useState('');
     const handleOnSubmit = (e:React.MouseEvent | React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
-        search.handleOnChange(text)
+        search.handleOnChange(text);
     }
     return(
         <div className={!isMobile ? classes.flex : ''}>
@@ -59,7 +59,7 @@ export const ProductsForm :FC<ProductsFormProps> = ({search, active, promo}) =>{
                     <Checkbox
                         checked={active.value}
                         onChange={({target})=>active.handleOnChange(target.checked)}
-                        name="checkedB"
+                        name="active checkbox"
                         color="primary"
                     />
                     }
@@ -70,7 +70,7 @@ export const ProductsForm :FC<ProductsFormProps> = ({search, active, promo}) =>{
                     <Checkbox
                         checked={promo.value}
                         onChange={({target})=>promo.handleOnChange(target.checked)}
-                        name="checkedB"
+                        name="promo checkbox"
                         color="primary"
                     />
                     }

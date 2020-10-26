@@ -1,26 +1,30 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
-import React, {FC} from 'react';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
+import React, {FC, useState} from 'react';
 import { ProductModel } from '../../../api-interfaces';
 import Rating from '@material-ui/lab/Rating';
 import { FilledButton, FilledButtonProps } from '../../utillities/FilledButton';
 import { commonStyles } from 'app/styles/utilities';
 import { productStyles } from './productStyles';
 import { isMobile } from 'react-device-detect';
+import { DetailsDialog, DetailsDialogProps } from '../detailsDialog/DetailsDialog';
 
-export const Product :FC<ProductModel> = ({id, name, description, rating, image, promo, active}) => {
+export const Product :FC<ProductModel> = ({name, description, rating, image, promo, active}) => {
     const commonClasses = commonStyles();
     const productClasses = productStyles();
-    const handleOnClick = () => {
-        console.log('smgsd')
-    }
     const button :FilledButtonProps = {
         text: active ? "Show details" : "Unavailable",
-        handleClick: handleOnClick,
+        handleClick: ()=>setOpen(true),
         disabled: !active
     }
     const mediaStyles = active ? productClasses.image : `${productClasses.greyBackground} ${productClasses.image}`;
-    const buttonStyles = button.disabled ? `${productClasses.filledButtonAbsolute} ${commonClasses.mb3} ${commonClasses.disabledButton}` : `${productClasses.filledButtonAbsolute} ${commonClasses.mb3}`;
-
+    const [open, setOpen] = useState(false);
+    const detailsData : DetailsDialogProps = {
+        name,
+        description,
+        image,
+        open,
+        onClose: ()=>setOpen(false)
+    }
     return(
         <Card elevation={0} className={!isMobile ? productClasses.cardSizes : ''}>
             <CardActionArea>
@@ -42,11 +46,11 @@ export const Product :FC<ProductModel> = ({id, name, description, rating, image,
                     </Typography>
                    
                 </CardContent> 
-                <Rating className={`${commonClasses.mt3} ${commonClasses.mb2}`} size="small" name="product-rating" value={rating} readOnly />
+                
             </CardActionArea>
-            <Button className={buttonStyles} variant="contained" color="primary" disabled={button.disabled} fullWidth onClick={button.handleClick}>
-                {button.text}
-            </Button>
+            <Rating className={commonClasses.mt3} size="small" name="product-rating" value={rating} readOnly />
+            <FilledButton {...button} />
+            <DetailsDialog {...detailsData} />
         </Card>
     )
 }

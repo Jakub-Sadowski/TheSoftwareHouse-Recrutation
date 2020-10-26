@@ -1,6 +1,5 @@
-import { Button, Container, Grid } from '@material-ui/core';
-import { Pagination } from '@material-ui/lab';
-import { ProductModel, ProductsModel, StoreModel } from 'api-interfaces';
+import { Container, Grid } from '@material-ui/core';
+import { ProductsModel, StoreModel } from 'api-interfaces';
 import { commonStyles } from 'app/styles/utilities';
 import { CustomPagination, CustomPaginationProps } from 'app/utillities/CustomPagination';
 import React, { useEffect, useState } from 'react';
@@ -9,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TRY_FETCH_PRODUCTS } from 'redux/products/types';
 import { AppRoute } from 'routing/AppRoute.enum';
+import { LoginStatus } from './loginStatus/LoginStatus';
 import { ProductsForm, ProductsFormProps } from './productsForm/ProductsForm';
 import { ProductsList } from './productsList/ProductsList';
 
@@ -48,18 +48,26 @@ export const Products = () => {
   }
   useEffect(()=>{
       dispatch({ type: TRY_FETCH_PRODUCTS, payload:{path:`product?limit=${limit}&page=${page}&${searchFilter}${activeFilter}${promoFilter}`} });
-  },[dispatch, page, search, active, promo])
+  },[dispatch, page, limit, searchFilter, activeFilter, promoFilter])
 
   return (
-    <Container  className={classes.center}>
-      <div className={isMobile ? classes.mt5 : `${classes.browserNav}`}>
-        <Link className={classes.logo} to={AppRoute.home}>join.tsh.io</Link>
-        {!isMobile && <ProductsForm {...formData} /> }
-        <Button variant="outlined" className={`${classes.toRight} ${classes.textToNormal} ${classes.colorBlue}`}> Log in </Button>      
+    <div className={classes.browserBack}>
+      <div className={`${classes.browserNav} ${classes.p4} ${classes.mb5}`}>
+      <Grid container className={classes.mainContainer}>
+      <Container  className={isMobile ? `${classes.center}` : `${classes.browserNav} ${classes.center}`}>
+          <Link className={`${classes.logo} ${classes.mt3}`} to={AppRoute.home}>join.tsh.io</Link>
+            {!isMobile && <ProductsForm {...formData} />}
+            <LoginStatus />
+            {isMobile && <ProductsForm {...formData} />}
+        </Container>
+        </Grid>
       </div>
-      {isMobile && <ProductsForm {...formData} /> }
-      <ProductsList/>
-      <CustomPagination {...paginationData} />
-    </Container>
+    <Grid container className={classes.mainContainer}>
+      <Container  className={classes.center}>
+        <ProductsList/>
+        <CustomPagination {...paginationData} />
+      </Container>
+      </Grid>
+    </div>
   );
 };
